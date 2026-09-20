@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>ARSHAD AYOOB — Creative Developer • Security • Digital Solutions | CodeNest</title>
+  <meta name="description" content="Arshad Ayoob — Founder of CodeNest Security & Digital Solutions. Creative Developer, Security Architect, and Builder of digital systems and interactive experiences based in Gonikoppal, Coorg, Karnataka, India." />
+
+  <!-- Preconnect & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cyber Scanline Overlay -->
+  <div class="cyber-bg-overlay" aria-hidden="true"></div>
+  <div class="ambient-glow-red" aria-hidden="true"></div>
+  <div class="ambient-glow-cyan" aria-hidden="true"></div>
+
+  <!-- Custom Cursor (Desktop) -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       CINEMATIC BOOT SEQUENCE SCREEN
+       ========================================================================== -->
+  <div id="boot-screen" role="dialog" aria-label="System Initializing">
+    <div class="boot-box">
+      <div class="boot-header">
+        <div class="boot-title">
+          <span class="ir-blinker"></span>
+          CODENEST SECURE BOOT
+        </div>
+        <div>SYS_REV: 2026.09</div>
+      </div>
+      <div class="boot-console" id="boot-console">
+        <!-- Lines dynamically inserted via app.js -->
+      </div>
+      <div class="boot-progress-wrap">
+        <div class="boot-progress-bar" id="boot-progress"></div>
+      </div>
+      <div class="boot-footer">
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-gray-500);">
+          ENCRYPTED LINK // PROTOCOL 404
+        </span>
+        <button class="boot-skip-btn" id="boot-skip">SKIP INTRO [ESC]</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FUTURISTIC GLASS NAVIGATION
+       ========================================================================== -->
+  <header class="header-nav">
+    <a href="#hero" class="brand-wrap" aria-label="Arshad Ayoob Homepage">
+      <div class="brand-badge">AA</div>
+      <div class="brand-text">
+        <span class="brand-name">ARSHAD AYOOB</span>
+        <span class="brand-sub">CODENEST SECURITY</span>
+      </div>
+    </a>
+
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">HOME</a></li>
+        <li><a href="#about" class="nav-link">ABOUT</a></li>
+        <li><a href="#services" class="nav-link">SERVICES</a></li>
+        <li><a href="#security" class="nav-link">SECURITY</a></li>
+        <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+        <li><a href="#skills" class="nav-link">SKILLS</a></li>
+        <li><a href="#journey" class="nav-link">JOURNEY</a></li>
+        <li><a href="#contact" class="nav-link">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="live-beacon">
+        <span class="ir-blinker"></span>
+        <span>LIVE GONIKOPPAL</span>
+      </div>
+      <button class="hamburger-btn" id="hamburger-toggle" aria-label="Toggle Mobile Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <button class="mobile-close-btn" id="drawer-close" aria-label="Close Menu">&times;</button>
+    <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-red); margin-bottom: 1rem;">
+      // SYSTEM NAVIGATION
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#hero" class="mobile-nav-link active">01 // HOME</a></li>
+      <li><a href="#about" class="mobile-nav-link">02 // ABOUT</a></li>
+      <li><a href="#services" class="mobile-nav-link">03 // SERVICES</a></li>
+      <li><a href="#security" class="mobile-nav-link">04 // SECURITY</a></li>
+      <li><a href="#projects" class="mobile-nav-link">05 // PROJECTS</a></li>
+      <li><a href="#skills" class="mobile-nav-link">06 // SKILLS</a></li>
+      <li><a href="#journey" class="mobile-nav-link">07 // JOURNEY</a></li>
+      <li><a href="#contact" class="mobile-nav-link">08 // CONTACT</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-gray-400);">
+      <div>FOUNDER: CODENEST</div>
+      <div style="color: var(--color-cyan); margin-top: 0.3rem;">+91 82963 38576</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION WITH 3D ENVIRONMENT & INTERACTIVE SPIDER-MAN
+       ========================================================================== -->
+  <section id="hero">
+    <!-- WebGL Three.js Background Canvas -->
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Interactive Hanging Spider-Man Easter Egg -->
+    <div id="spiderman-wrapper" aria-label="Interactive Hanging Spider-Man Easter Egg">
+      <canvas id="spiderman-cable-canvas"></canvas>
+      <div id="spiderman-character" title="Drag Spider-Man!">
+        <img id="spiderman-img" src="assets/spiderman-clean.png" alt="Interactive Hanging Spider-Man" />
+      </div>
+      <div id="spiderman-hint">⚡ DRAG ME</div>
+    </div>
+
+    <div class="hero-container">
+      <!-- Left Column: Typography & CTAs -->
+      <div class="hero-text-wrap">
+        <div class="hero-badge-tag">
+          <span class="ir-blinker"></span>
+          <span>SYSTEM ID: AYOOB-001 // VERIFIED ROOT</span>
+        </div>
+        <div class="hero-subtitle">CREATIVE DEVELOPER • SECURITY • DIGITAL SOLUTIONS</div>
+        <h1 class="hero-title">
+          ARSHAD<br />
+          <span class="glow-red">AYOOB</span>
+        </h1>
+        <div class="hero-founder-tag">
+          FOUNDER &bull; <strong>CODENEST SECURITY & DIGITAL SOLUTIONS</strong>
+        </div>
+        <p class="hero-desc">
+          "I build digital systems, security solutions and creative experiences for real-world businesses."
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn-cyber-primary">
+            EXPLORE WORK <span>&rarr;</span>
+          </a>
+          <a href="#contact" class="btn-cyber-outline">
+            CONTACT ME
+          </a>
+        </div>
+
+        <div class="hero-social-quick">
+          <a href="https://instagram.com/Achi_404_" target="_blank" rel="noopener noreferrer" class="social-pill" title="Instagram">
+            <span>&bull;</span> @Achi_404_
+          </a>
+          <a href="https://wa.me/918296338576" target="_blank" rel="noopener noreferrer" class="social-pill" title="WhatsApp">
+            <span>&bull;</span> WhatsApp
+          </a>
+          <a href="tel:8296338576" class="social-pill" title="Call">
+            <span>&bull;</span> 82963 38576
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Holographic Digital Identity Card -->
+      <div class="hero-id-card-wrap">
+        <div class="holographic-id-card">
+          <div class="id-card-top">
+            <span style="color: var(--color-red); font-weight: 700;">// CODENEST IDENT</span>
+            <span style="display: flex; align-items: center; gap: 0.4rem;">
+              <span class="ir-blinker"></span> CODENEST ONLINE
+            </span>
+          </div>
+
+          <div class="id-card-photo-box">
+            <img src="assets/arshad-poster.jpg" alt="Arshad Ayoob - Creative Developer" class="id-card-img" />
+            <div class="id-card-scanline"></div>
+            <div class="id-card-corners"></div>
+          </div>
+
+          <div class="id-card-details">
+            <div class="id-card-name">
+              <span>ARSHAD AYOOB</span>
+              <span class="id-badge-code">AYOOB-001</span>
+            </div>
+            <div class="id-card-role">CREATIVE DEVELOPER &bull; SECURITY ARCHITECT</div>
+
+            <div class="id-card-meta">
+              <div class="id-meta-item">
+                <span class="id-meta-label">ORGANIZATION</span>
+                <span class="id-meta-val">CodeNest Digital</span>
+              </div>
+              <div class="id-meta-item">
+                <span class="id-meta-label">LOCATION</span>
+                <span class="id-meta-val">Gonikoppal, Coorg</span>
+              </div>
+              <div class="id-meta-item">
+                <span class="id-meta-label">STATUS</span>
+                <span class="id-meta-val" style="color: #00ff88;">OPERATIONAL</span>
+              </div>
+              <div class="id-meta-item">
+                <span class="id-meta-label">SECURITY LEVEL</span>
+                <span class="id-meta-val" style="color: var(--color-cyan);">ENCRYPTED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 01: ABOUT (DIGITAL IDENTITY)
+       ========================================================================== -->
+  <section id="about">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 01 &bull; BIOMETRIC PROFILE</div>
+        <h2 class="section-title">DIGITAL <span class="glow">IDENTITY</span></h2>
+        <p class="section-desc">
+          High-performance systems, robust surveillance engineering, and creative digital architecture built for the real world.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <!-- Real Daylight Portrait Photo in Coorg -->
+        <div class="about-photo-wrapper">
+          <div class="about-photo-frame">
+            <img src="assets/arshad-lake.jpg" alt="Arshad Ayoob in Gonikoppal, Coorg" class="about-photo-img" />
+            <div class="about-photo-overlay"></div>
+            <div class="about-coordinates">
+              LAT: 12.1642&deg; N &bull; LON: 75.8944&deg; E &bull; COORG
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative & Interactive Terminal -->
+        <div class="about-content-wrap">
+          <p class="about-lead">
+            I’m <strong>Arshad Ayoob</strong>, a creative developer and technology-focused entrepreneur from <strong>Gonikoppal, Coorg, Karnataka</strong>. As the founder of <strong>CodeNest Security & Digital Solutions</strong>, I bridge the gap between physical security infrastructure and cutting-edge software engineering.
+          </p>
+
+          <div class="about-pills-grid">
+            <span class="work-pill">Web Development</span>
+            <span class="work-pill">POS & Billing Systems</span>
+            <span class="work-pill">CCTV & Security Solutions</span>
+            <span class="work-pill">Digital Solutions</span>
+            <span class="work-pill">Video Editing & Motion</span>
+            <span class="work-pill">UI / UX Design</span>
+            <span class="work-pill">Business Systems</span>
+            <span class="work-pill">Technology Architecture</span>
+          </div>
+
+          <!-- Interactive Sci-Fi Terminal Window -->
+          <div class="cyber-terminal">
+            <div class="terminal-titlebar">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div>arshad@codenest-terminal:~$</div>
+              <div>BASH 5.2</div>
+            </div>
+            <div class="terminal-body" id="terminal-content">
+              <!-- Animated typing lines will be rendered here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 02: SERVICES (SYSTEM SOLUTIONS - 3D CARDS)
+       ========================================================================== -->
+  <section id="services">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 02 &bull; CORE COMPETENCIES</div>
+        <h2 class="section-title">ENGINEERED <span class="glow">SERVICES</span></h2>
+        <p class="section-desc">
+          From surveillance hardware deployments to custom enterprise POS software and cinematic 3D web applications.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 01 CCTV & Security -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">01</span>
+              <div class="service-icon-box">&#9678;</div>
+            </div>
+            <h3 class="service-title">CCTV & SECURITY</h3>
+            <p class="service-desc">
+              Comprehensive surveillance architecture designed for maximum perimeter security and remote uptime.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>High-definition IP & Analog Camera Systems</li>
+            <li>NVR & DVR Server Setup & Storage Matrices</li>
+            <li>4G SIM & Solar-Powered Standalone Units</li>
+            <li>Multi-Channel Remote Viewing & Playback</li>
+          </ul>
+        </div>
+
+        <!-- 02 Web Development -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">02</span>
+              <div class="service-icon-box">&lt;/&gt;</div>
+            </div>
+            <h3 class="service-title">WEB DEVELOPMENT</h3>
+            <p class="service-desc">
+              Modern, lightning-fast web applications built with state-of-the-art architectures and responsive engineering.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>Custom Web Applications & SPA Architecture</li>
+            <li>Interactive 3D WebGL & Creative Web Systems</li>
+            <li>Robust Offline Storage (LocalStorage & IndexedDB)</li>
+            <li>High-Performance Clean Code & Micro-Interactions</li>
+          </ul>
+        </div>
+
+        <!-- 03 POS & Billing -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">03</span>
+              <div class="service-icon-box">&#9638;</div>
+            </div>
+            <h3 class="service-title">POS & BILLING</h3>
+            <p class="service-desc">
+              Tailored commercial point-of-sale software engineered for speed, barcode integration, and real-time inventory.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>High-Velocity Barcode Scanning & Checkout</li>
+            <li>Dynamic Inventory Tracking & Low-Stock Alerts</li>
+            <li>Automated Thermal Receipt Printing & GST</li>
+            <li>Detailed Daily Sales Analytics & Profit Reports</li>
+          </ul>
+        </div>
+
+        <!-- 04 Digital Solutions -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">04</span>
+              <div class="service-icon-box">&#9881;</div>
+            </div>
+            <h3 class="service-title">DIGITAL SOLUTIONS</h3>
+            <p class="service-desc">
+              Complete operational digitalization that eliminates friction, accelerates workflows, and scales businesses.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>Service Center Workflow Management Systems</li>
+            <li>Hardware Repair & Customer Ticketing Portals</li>
+            <li>Digital Invoicing & Client Records Management</li>
+            <li>Hardware-Software Systems Integration</li>
+          </ul>
+        </div>
+
+        <!-- 05 Creative Media -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">05</span>
+              <div class="service-icon-box">&#9654;</div>
+            </div>
+            <h3 class="service-title">CREATIVE MEDIA</h3>
+            <p class="service-desc">
+              High-impact visual storytelling, promotional video production, and viral social media editing.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>Promotional Reels & Short-Form Video Editing</li>
+            <li>Cinematic Color Grading & Motion Typography</li>
+            <li>Precision Beat Synchronization & Sound Design</li>
+            <li>Brand Content Strategy & Visual Identity</li>
+          </ul>
+        </div>
+
+        <!-- 06 UI / UX Design -->
+        <div class="service-card">
+          <div>
+            <div class="service-top">
+              <span class="service-num">06</span>
+              <div class="service-icon-box">&#9670;</div>
+            </div>
+            <h3 class="service-title">UI / UX DESIGN</h3>
+            <p class="service-desc">
+              Cyber-tech dashboards, clean intuitive workflows, and modern dark-mode user interfaces.
+            </p>
+          </div>
+          <ul class="service-features">
+            <li>Sci-Fi HUD & Telemetry Interface Design</li>
+            <li>Mobile-First Responsive Wireframing</li>
+            <li>Custom Interactive Components & Micro-Animations</li>
+            <li>Design Systems & Component Architecture</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 03: CODENEST SECURITY NETWORK (LIVE COMMAND CENTER)
+       ========================================================================== -->
+  <section id="security">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 03 &bull; TELEMETRY & SURVEILLANCE</div>
+        <h2 class="section-title">SECURITY <span class="glow">NETWORK</span></h2>
+        <p class="section-desc">
+          Live simulated command center monitoring CodeNest's commercial surveillance matrices and camera nodes.
+        </p>
+      </div>
+
+      <div class="security-network-box">
+        <!-- Top Status Telemetry Bar -->
+        <div class="sec-hud-bar">
+          <div class="sec-status-group">
+            <div class="sec-status-item">
+              <span class="ir-blinker"></span>
+              <strong style="color: var(--color-red);">CODENEST SECURITY NETWORK</strong>
+            </div>
+            <div class="sec-status-item">
+              <span>SYSTEM:</span> <strong style="color: #00ff88;">ONLINE</strong>
+            </div>
+            <div class="sec-status-item">
+              <span>CAMERAS:</span> <strong style="color: var(--color-cyan);">4 ACTIVE</strong>
+            </div>
+            <div class="sec-status-item">
+              <span>SECURITY:</span> <strong style="color: #00ff88;">ACTIVE</strong>
+            </div>
+          </div>
+          <div class="sec-clock" id="cctv-live-clock">00:00:00.00 IST</div>
+        </div>
+
+        <!-- 4 CCTV Feed Thumbnail Selectors -->
+        <div class="sec-feeds-grid">
+          <div class="sec-feed-card active-feed" data-feed="0">
+            <canvas class="sec-feed-canvas" id="cam-canvas-1"></canvas>
+            <div class="sec-feed-overlay">
+              <div class="feed-header">
+                <span>CAM-01</span>
+                <div class="feed-rec-badge"><span class="feed-rec-dot"></span> REC</div>
+              </div>
+              <div class="feed-footer">
+                <span>HQ ENTRANCE</span>
+                <span>FPS: 30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-feed-card" data-feed="1">
+            <canvas class="sec-feed-canvas" id="cam-canvas-2"></canvas>
+            <div class="sec-feed-overlay">
+              <div class="feed-header">
+                <span>CAM-02</span>
+                <div class="feed-rec-badge"><span class="feed-rec-dot"></span> REC</div>
+              </div>
+              <div class="feed-footer">
+                <span>SERVER ROOM</span>
+                <span>FPS: 30</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-feed-card" data-feed="2">
+            <canvas class="sec-feed-canvas" id="cam-canvas-3"></canvas>
+            <div class="sec-feed-overlay">
+              <div class="feed-header">
+                <span>CAM-03</span>
+                <div class="feed-rec-badge"><span class="feed-rec-dot"></span> REC</div>
+              </div>
+              <div class="feed-footer">
+                <span>PERIMETER NORTH</span>
+                <span>FPS: 25</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sec-feed-card" data-feed="3">
+            <canvas class="sec-feed-canvas" id="cam-canvas-4"></canvas>
+            <div class="sec-feed-overlay">
+              <div class="feed-header">
+                <span>CAM-04</span>
+                <div class="feed-rec-badge"><span class="feed-rec-dot"></span> REC</div>
+              </div>
+              <div class="feed-footer">
+                <span>TECH LAB</span>
+                <span>FPS: 60</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main High-Res Monitor Screen -->
+        <div class="sec-main-viewer">
+          <div class="main-viewer-screen">
+            <canvas class="main-viewer-canvas" id="main-cctv-canvas"></canvas>
+            <div class="viewer-crt-lines"></div>
+            <div style="position: absolute; top: 1rem; left: 1.2rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-cyan); pointer-events: none;">
+              [ <span id="main-cam-title">CAM-01: HQ ENTRANCE</span> ] &bull; STREAM PROTOCOL: RTSP/H.265
+            </div>
+            <div style="position: absolute; bottom: 1rem; right: 1.2rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--color-red); pointer-events: none;">
+              ENCRYPTION: AES-256 GCM &bull; 0 PACKET LOSS
+            </div>
+          </div>
+
+          <div class="main-viewer-meta">
+            <div style="font-family: var(--font-heading); font-size: 1.1rem; color: #fff; margin-bottom: 0.8rem;">
+              NODE TELEMETRY
+            </div>
+            <div class="meta-spec-list">
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">STATION ID</span>
+                <span class="meta-spec-val">CODENEST-HQ-01</span>
+              </div>
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">GRID POWER</span>
+                <span class="meta-spec-val cyan">SOLAR + UPS 100%</span>
+              </div>
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">NETWORK CARRIER</span>
+                <span class="meta-spec-val">4G SIM / FIBER DUAL</span>
+              </div>
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">NVR STORAGE</span>
+                <span class="meta-spec-val">RAID-5 16TB HEALTHY</span>
+              </div>
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">IR SENSOR ILLUM</span>
+                <span class="meta-spec-val red">ACTIVE 850NM</span>
+              </div>
+              <div class="meta-spec-row">
+                <span class="meta-spec-label">AI DETECTION</span>
+                <span class="meta-spec-val cyan">HUMAN / VEHICLE ON</span>
+              </div>
+            </div>
+            <div style="font-size: 0.72rem; color: var(--color-gray-500); margin-top: 1rem;">
+              Engineered by Arshad Ayoob for enterprise security monitoring.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 04: PROJECTS (REAL COMMERCIAL PROJECTS ONLY)
+       ========================================================================== -->
+  <section id="projects">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 04 &bull; DEPLOYED SYSTEMS</div>
+        <h2 class="section-title">FEATURED <span class="glow">PROJECTS</span></h2>
+        <p class="section-desc">
+          Real software systems, commercial retail POS platforms, and physical security deployments created by Arshad Ayoob.
+        </p>
+      </div>
+
+      <!-- Real Projects Grid (strictly excludes Sneham & Lakshmi, includes SLN Computers) -->
+      <div class="projects-grid" id="projects-grid">
+        <!-- Rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 05: SKILLS (SYSTEM CAPABILITIES)
+       ========================================================================== -->
+  <section id="skills">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 05 &bull; TECHNICAL ARSENAL</div>
+        <h2 class="section-title">SYSTEM <span class="glow">CAPABILITIES</span></h2>
+        <p class="section-desc">
+          A balanced synthesis of software engineering, surveillance hardware mastery, and creative digital media.
+        </p>
+      </div>
+
+      <div class="skills-container-grid">
+        <!-- Cluster 1: Web & Software Engineering -->
+        <div class="skill-cluster-box">
+          <div class="cluster-header">
+            <div class="cluster-icon">&lt;/&gt;</div>
+            <h3 class="cluster-title">WEB & SOFTWARE</h3>
+          </div>
+          <div class="skill-bar-list">
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>HTML5 & Semantic Architecture</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="96"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>CSS3, Responsive Grid & 3D Transforms</span>
+                <span class="skill-bar-status">ADVANCED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="94"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>JavaScript (ES6+) & DOM Engine</span>
+                <span class="skill-bar-status">ADVANCED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="92"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>React & Modern Component Systems</span>
+                <span class="skill-bar-status">SKILLED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="85"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>IndexedDB & LocalStorage (Offline POS)</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="95"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cluster 2: Security & Surveillance Hardware -->
+        <div class="skill-cluster-box">
+          <div class="cluster-header">
+            <div class="cluster-icon">&#9678;</div>
+            <h3 class="cluster-title">SECURITY & CCTV</h3>
+          </div>
+          <div class="skill-bar-list">
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>CCTV Installation & Maintenance</span>
+                <span class="skill-bar-status">MASTER</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="98"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>IP Cameras & Digital POE Networking</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="95"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>DVR / NVR Server Setup & RAID</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="92"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>4G / SIM & Solar Surveillance Systems</span>
+                <span class="skill-bar-status">SPECIALIST</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="90"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>Remote Access & Secure Port Routing</span>
+                <span class="skill-bar-status">ADVANCED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="88"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cluster 3: Creative & Business Solutions -->
+        <div class="skill-cluster-box">
+          <div class="cluster-header">
+            <div class="cluster-icon">&#9670;</div>
+            <h3 class="cluster-title">CREATIVE & SOLUTIONS</h3>
+          </div>
+          <div class="skill-bar-list">
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>Custom POS & Billing Software Systems</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="96"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>UI / UX Dashboard & Interface Design</span>
+                <span class="skill-bar-status">ADVANCED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="90"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>Video Editing, Reels & Motion Graphics</span>
+                <span class="skill-bar-status">ADVANCED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="88"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>Color Grading & Audio Synchronization</span>
+                <span class="skill-bar-status">SKILLED</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="85"></div></div>
+            </div>
+            <div class="skill-bar-item">
+              <div class="skill-bar-meta">
+                <span>End-to-End Business Digital Solutions</span>
+                <span class="skill-bar-status">EXPERT</span>
+              </div>
+              <div class="skill-track"><div class="skill-fill" data-percent="94"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 06: DIGITAL JOURNEY (FACTUAL CHRONOLOGY)
+       ========================================================================== -->
+  <section id="journey">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 06 &bull; EVOLUTION</div>
+        <h2 class="section-title">DIGITAL <span class="glow">JOURNEY</span></h2>
+        <p class="section-desc">
+          A factual trajectory from self-taught coding and hardware experimentation in Coorg to enterprise systems.
+        </p>
+      </div>
+
+      <div class="timeline-track-wrap">
+        <!-- Node 1 -->
+        <div class="timeline-card-node left">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-year-badge">2022 // GENESIS & HARDWARE</div>
+            <h3 class="timeline-title">Hardware & Coding Foundations</h3>
+            <p class="timeline-text">
+              Began building early software prototypes and mastering network hardware in Gonikoppal, Coorg. Focused on understanding real business pain points rather than purely academic coding.
+            </p>
+          </div>
+        </div>
+
+        <!-- Node 2 -->
+        <div class="timeline-card-node right">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-year-badge">2023 // PHYSICAL SECURITY</div>
+            <h3 class="timeline-title">Surveillance & CCTV Specialization</h3>
+            <p class="timeline-text">
+              Expanded heavily into security systems: IP cameras, NVR matrix architectures, and 4G remote surveillance across Kodagu. Developed a reputation for reliable installations and robust zero-failure networking.
+            </p>
+          </div>
+        </div>
+
+        <!-- Node 3 -->
+        <div class="timeline-card-node left">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-year-badge">2024 // RETAIL AUTOMATION</div>
+            <h3 class="timeline-title">Custom POS & Business Software</h3>
+            <p class="timeline-text">
+              Engineered tailored billing and inventory suites for key regional businesses including Elora Boutique, SLN Computers, and Shoe Corner. Built offline-first resilience using IndexedDB and instant barcode scanning.
+            </p>
+          </div>
+        </div>
+
+        <!-- Node 4 -->
+        <div class="timeline-card-node right">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-year-badge">2025 // COMPANY FOUNDATION</div>
+            <h3 class="timeline-title">Founded CodeNest Security & Digital</h3>
+            <p class="timeline-text">
+              Launched CodeNest Security & Digital Solutions as a unified technology and security provider, combining physical surveillance engineering with commercial software and creative media.
+            </p>
+          </div>
+        </div>
+
+        <!-- Node 5 -->
+        <div class="timeline-card-node left">
+          <div class="timeline-node-dot"></div>
+          <div class="timeline-content-card">
+            <div class="timeline-year-badge">PRESENT // NEXT ERA</div>
+            <h3 class="timeline-title">3D Creative Web & Scalable Systems</h3>
+            <p class="timeline-text">
+              Advancing into interactive 3D WebGL experiences, real-time physics interactions, and high-end digital solutions for enterprises seeking distinctive creative technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 07: CONTACT (ESTABLISH CONNECTION)
+       ========================================================================== -->
+  <section id="contact">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-pretitle">// 07 &bull; ESTABLISH CONNECTION</div>
+        <h2 class="section-title">LET'S BUILD <span class="glow">SOMETHING REAL.</span></h2>
+        <p class="section-desc">
+          Have a software project, retail POS requirement, CCTV installation, or creative digital vision? Let's connect directly.
+        </p>
+      </div>
+
+      <div class="contact-container-grid">
+        <!-- Left: Direct Info Card -->
+        <div class="contact-info-card">
+          <h3 class="contact-headline">ARSHAD AYOOB</h3>
+          <p class="contact-subtitle">
+            Creative Developer &bull; Security &bull; Digital Solutions<br />
+            Founder — CodeNest Security & Digital Solutions
+          </p>
+
+          <div class="contact-direct-list">
+            <div class="contact-item-row">
+              <div class="contact-icon-box">&#9742;</div>
+              <div class="contact-item-info">
+                <span class="contact-item-label">DIRECT PHONE</span>
+                <a href="tel:8296338576" class="contact-item-val">+91 82963 38576</a>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon-box">&#128172;</div>
+              <div class="contact-item-info">
+                <span class="contact-item-label">WHATSAPP INSTANT</span>
+                <a href="https://wa.me/918296338576" target="_blank" rel="noopener noreferrer" class="contact-item-val">+91 82963 38576</a>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon-box">&#128248;</div>
+              <div class="contact-item-info">
+                <span class="contact-item-label">INSTAGRAM</span>
+                <a href="https://instagram.com/Achi_404_" target="_blank" rel="noopener noreferrer" class="contact-item-val">@Achi_404_</a>
+              </div>
+            </div>
+
+            <div class="contact-item-row">
+              <div class="contact-icon-box">&#128205;</div>
+              <div class="contact-item-info">
+                <span class="contact-item-label">LOCATION</span>
+                <span class="contact-item-val">Gonikoppal, Coorg, Karnataka, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-btn-group">
+            <a href="https://wa.me/918296338576" target="_blank" rel="noopener noreferrer" class="btn-cyber-primary">
+              WHATSAPP ME
+            </a>
+            <a href="tel:8296338576" class="btn-cyber-outline">
+              CALL DIRECT
+            </a>
+            <a href="https://instagram.com/Achi_404_" target="_blank" rel="noopener noreferrer" class="btn-cyber-outline">
+              INSTAGRAM
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Instant WhatsApp Message Form -->
+        <div class="contact-form-box">
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-cyan); margin-bottom: 1.2rem;">
+            // QUICK DISPATCH TO WHATSAPP
+          </div>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="form-name" class="form-label">YOUR NAME / BUSINESS</label>
+              <input type="text" id="form-name" class="form-input" placeholder="e.g. John Doe / Retail Store" required />
+            </div>
+
+            <div class="form-group">
+              <label for="form-service" class="form-label">SERVICE INTERESTED IN</label>
+              <select id="form-service" class="form-input" style="cursor: pointer;">
+                <option value="CCTV & Security Solutions">CCTV & Security Solutions</option>
+                <option value="Custom Web Development">Custom Web Development</option>
+                <option value="Retail POS & Billing System">Retail POS & Billing System</option>
+                <option value="Enterprise Digital Solutions">Enterprise Digital Solutions</option>
+                <option value="Creative Media & Video Production">Creative Media & Video Production</option>
+                <option value="Other Technology Requirement">Other Technology Requirement</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" class="form-label">PROJECT DETAILS & REQUIREMENTS</label>
+              <textarea id="form-message" class="form-textarea" placeholder="Describe your project, timeline, and requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-cyber-primary" style="width: 100%; justify-content: center;">
+              TRANSMIT VIA WHATSAPP <span>&rarr;</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PROJECT DETAIL LIGHTBOX MODAL
+       ========================================================================== -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-label="Project Details">
+    <div class="modal-content-wrap">
+      <button class="modal-close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-project-details">
+        <!-- Injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer-wrap">
+    <div class="footer-container">
+      <div>
+        <div class="footer-brand-title">ARSHAD AYOOB</div>
+        <div class="footer-brand-sub">CODENEST SECURITY & DIGITAL SOLUTIONS &bull; GONIKOPPAL, COORG</div>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 ARSHAD AYOOB. ALL RIGHTS RESERVED. ENCRYPTED PROTOCOL.
+      </div>
+      <div>
+        <a href="#hero" class="social-pill" style="color: var(--color-cyan);">
+          &uarr; BACK TO TOP
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js (CDN with graceful fallback) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Application Modules -->
+  <script src="three-scene.js"></script>
+  <script src="spiderman.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
